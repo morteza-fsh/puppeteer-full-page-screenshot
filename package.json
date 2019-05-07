@@ -1,5 +1,5 @@
 {
-    "name": "puppeteer-fullpage-screenshot",
+    "name": "puppeteer-full-page-screenshot",
     "version": "1.0.0",
     "description": "A better solution for taking full page screenshot with Puppeteer",
     "main": "lib/index.js",
@@ -11,10 +11,10 @@
         "build": "yarn run clean && babel -d ./lib ./src -s",
         "start": "node --exec babel-node src/index.js"
     },
-    "homepage": "https://github.com/averta-lab/puppeteer-fullpage-screenshot",
+    "homepage": "https://github.com/averta-lab/puppeteer-full-page-screenshot",
     "repository": {
         "type": "git",
-        "url": "https://github.com/averta-lab/puppeteer-fullpage-screenshot.git"
+        "url": "https://github.com/averta-lab/puppeteer-full-page-screenshot.git"
     },
     "files": [
         "lib"

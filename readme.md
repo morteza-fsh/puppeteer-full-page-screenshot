@@ -8,17 +8,17 @@ You can use this library to take full page screenshots with puppeteer without wo
 
 ```
 # Yarn
-yarn add puppeteer-fullpage-screenshot
+yarn add puppeteer-full-page-screenshot
 
 # NPM
-npm install puppeteer-fullpage-screenshot --save
+npm install puppeteer-full-page-screenshot --save
 ```
 
 ## Usage
 
 ```javascript
 import puppeteer from "puppeteer";
-import fullPageScreenshot from "puppeteer-fullpage-screenshot";
+import fullPageScreenshot from "puppeteer-full-page-screenshot";
 
 (async () => {
     const browser = await puppeteer.launch();
