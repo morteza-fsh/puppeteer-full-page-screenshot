@@ -4,6 +4,16 @@
 
 You can use this library to take full page screenshots with puppeteer without worrying about above said issues. It takes multiple screenshots internally then merges them.
 
+## Install
+
+```
+# Yarn
+yarn add puppeteer-fullpage-screenshot
+
+# NPM
+npm install puppeteer-fullpage-screenshot --save
+```
+
 ## Usage
 
 ```javascript
