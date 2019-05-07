@@ -22,7 +22,7 @@ import fullPageScreenshot from "puppeteer-fullpage-screenshot";
 })();
 ```
 
-> **NOTE** As this library scrolls down to take screenshots, sticky elements may appear multiple times on the final image. In other to fix this issue you need to add custom styles to reset sticky styles just before taking the screenshot.
+> **NOTE** As this library scrolls down to take screenshots, sticky elements may appear multiple times on the final image. To fix this issue, you need to add custom styles to reset sticky positioned elements just before taking the screenshot.
 
 ## Options
 
