@@ -41,7 +41,7 @@ const fullPageScreenshot = async ( page, options = {} ) => {
     const mergedImage = await merge( images, { direction: true } );
     if ( options.path ) mergedImage.write( options.path );
 
-    return mergedImage.data;
+    return mergedImage;
 };
 
 export default fullPageScreenshot;
