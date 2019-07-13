@@ -34,6 +34,7 @@ const fullPageScreenshot = async ( page, options = {} ) => {
 
     if ( pagesCount === 1 ) {
         const image = await Jimp.read( images[0] );
+        if ( options.path ) image.write( options.path );
         return image;
     }
     // crop last image extra pixels
