@@ -17,8 +17,8 @@ const fullPageScreenshot = async ( page, options = {} ) => {
         window.scrollTo( 0, 0 );
         return {
             pagesCount: Math.ceil( document.body.clientHeight / window.innerHeight ),
-            extraPixels: document.body.clientHeight % window.innerHeight,
-            viewport: { height: window.innerHeight, width: window.innerWidth },
+            extraPixels: document.body.clientHeight % window.innerHeight * window.devicePixelRatio,
+            viewport: { height: window.innerHeight * window.devicePixelRatio, width: window.innerWidth * window.devicePixelRatio },
         };
     } );
 
