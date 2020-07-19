@@ -44,8 +44,15 @@ const fullPageScreenshot = async ( page, options = {} ) => {
 
     images.push( cropped );
     const mergedImage = await merge( images, { direction: true } );
-    if ( options.path ) mergedImage.write( options.path );
-
+ 
+    if (options.path) {
+        await new Promise((resolve, reject) => {
+          mergedImage.write(options.path, () => {
+            resolve();
+          });
+        });
+    };
+    
     return mergedImage;
 };
 
