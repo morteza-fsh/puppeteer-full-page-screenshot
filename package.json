@@ -1,42 +1,45 @@
 {
-    "name": "puppeteer-full-page-screenshot",
-    "version": "1.0.4",
-    "description": "A better solution for taking full page screenshot with Puppeteer",
-    "main": "lib/index.js",
-    "author": "Morteza Faghih Shojaei <morteza@averta.net>",
-    "license": "MIT",
-    "private": false,
-    "scripts": {
-        "clean": "rm -rf lib && mkdir lib",
-        "build": "yarn run clean && babel -d ./lib ./src -s",
-        "start": "node --exec babel-node src/index.js"
-    },
-    "homepage": "https://github.com/morteza-fsh/puppeteer-full-page-screenshot",
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/morteza-fsh/puppeteer-full-page-screenshot.git"
-    },
-    "files": [
-        "lib"
-    ],
-    "keywords": [
-        "puppeteer",
-        "headless",
-        "screenshot",
-        "fullpage"
-    ],
-    "devDependencies": {
-        "@babel/cli": "^7.4.4",
-        "@babel/core": "^7.4.4",
-        "@babel/node": "^7.2.2",
-        "@babel/preset-env": "^7.4.4",
-        "babel-eslint": "^10.0.1",
-        "eslint": "^5.16.0",
-        "eslint-config-airbnb-base": "^13.1.0",
-        "eslint-plugin-import": "^2.17.2"
-    },
-    "dependencies": {
-        "jimp": "^0.6.4",
-        "merge-img": "^2.1.3"
-    }
+	"name": "puppeteer-full-page-screenshot",
+	"version": "1.0.4",
+	"description": "A better solution for taking full page screenshot with Puppeteer",
+	"main": "lib/index.js",
+	"author": "Morteza Faghih Shojaei <morteza@averta.net>",
+	"license": "MIT",
+	"private": false,
+	"scripts": {
+		"clean": "rm -rf lib && mkdir lib",
+		"build": "yarn run clean && babel -d ./lib ./src -s",
+		"start": "node --exec babel-node src/index.js"
+	},
+	"homepage": "https://github.com/morteza-fsh/puppeteer-full-page-screenshot",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/morteza-fsh/puppeteer-full-page-screenshot.git"
+	},
+	"files": [
+		"lib",
+		"types"
+	],
+	"keywords": [
+		"puppeteer",
+		"headless",
+		"screenshot",
+		"fullpage"
+	],
+	"devDependencies": {
+		"@babel/cli": "^7.4.4",
+		"@babel/core": "^7.4.4",
+		"@babel/node": "^7.2.2",
+		"@babel/preset-env": "^7.4.4",
+		"@types/puppeteer-core": "^2.0.0",
+		"babel-eslint": "^10.0.1",
+		"eslint": "^5.16.0",
+		"eslint-config-airbnb-base": "^13.1.0",
+		"eslint-plugin-import": "^2.17.2"
+	},
+	"dependencies": {
+		"jimp": "^0.6.4",
+		"merge-img": "^2.1.3"
+	},
+	"types": "types/index.d.ts"
 }
