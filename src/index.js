@@ -12,7 +12,7 @@ const pageDown = async ( page ) => {
     return isEnd;
 };
 
-const fullPageScreenshot = async ( page, options = {} ) => {
+const fullPageScreenshot = async ( page, options = {}, quality = 100) => {
     const { pagesCount, extraPixels, viewport } = await page.evaluate( () => {
         window.scrollTo( 0, 0 );
         return {
@@ -27,7 +27,7 @@ const fullPageScreenshot = async ( page, options = {} ) => {
         if ( options.delay ) {
             await page.waitFor( options.delay );
         }
-        const image = await page.screenshot( { fullPage: false } );
+        const image = await page.screenshot( { fullPage: false , quality: quality } );
         await pageDown( page );
         images.push( image );
     }
