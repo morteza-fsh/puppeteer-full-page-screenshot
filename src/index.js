@@ -6,19 +6,20 @@ import Jimp from 'jimp';
 const pageDown = async ( page ) => {
     const isEnd = await page.evaluate( () => {
         window.scrollBy( 0, window.innerHeight );
-        return window.scrollY >= document.body.clientHeight - window.innerHeight;
+        return window.scrollY >= document.documentElement.scrollHeight - window.innerHeight;
     } );
 
     return isEnd;
 };
 
-const fullPageScreenshot = async ( page, options = {} ) => {
+const fullPageScreenshot = async ( page, options = {}, quality = 100) => {
     const { pagesCount, extraPixels, viewport } = await page.evaluate( () => {
         window.scrollTo( 0, 0 );
+        const pageHeight = document.documentElement.scrollHeight;
         return {
-            pagesCount: Math.ceil( document.body.clientHeight / window.innerHeight ),
-            extraPixels: document.body.clientHeight % window.innerHeight,
-            viewport: { height: window.innerHeight, width: window.innerWidth },
+            pagesCount: Math.ceil( pageHeight / window.innerHeight ),
+            extraPixels: pageHeight % window.innerHeight * window.devicePixelRatio,
+            viewport: { height: window.innerHeight * window.devicePixelRatio, width: window.innerWidth * window.devicePixelRatio },
         };
     } );
 
@@ -27,7 +28,7 @@ const fullPageScreenshot = async ( page, options = {} ) => {
         if ( options.delay ) {
             await page.waitFor( options.delay );
         }
-        const image = await page.screenshot( { fullPage: false } );
+        const image = await page.screenshot( { fullPage: false , quality: quality } );
         await pageDown( page );
         images.push( image );
     }
@@ -44,8 +45,15 @@ const fullPageScreenshot = async ( page, options = {} ) => {
 
     images.push( cropped );
     const mergedImage = await merge( images, { direction: true } );
-    if ( options.path ) mergedImage.write( options.path );
-
+ 
+    if (options.path) {
+        await new Promise((resolve, reject) => {
+          mergedImage.write(options.path, () => {
+            resolve();
+          });
+        });
+    };
+    
     return mergedImage;
 };
 
