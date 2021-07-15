@@ -28,7 +28,8 @@ const fullPageScreenshot = async ( page, options = {}, quality = 100) => {
         if ( options.delay ) {
             await page.waitFor( options.delay );
         }
-        const image = await page.screenshot( { fullPage: false , quality: quality } );
+        if (options.type === underfined) options.type = "jpeg";
+        const image = await page.screenshot( { type: options.type, quality, fullPage: false } );
         await pageDown( page );
         images.push( image );
     }
