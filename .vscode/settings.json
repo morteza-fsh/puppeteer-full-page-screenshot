@@ -1,11 +1,9 @@
 {
-    // Format a fnile on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
-    "editor.formatOnSave": true,
-    // Enable/disable default JavaScript formatter (For Prettier)
-    "javascript.format.enable": false,
-    "typescript.validate.enable": false,
-    "javascript.validate.enable": false,
-    "cSpell.words": [
-        "fullpage"
-    ]
+   // Format a fnile on save. A formatter must be available, the file must not be auto-saved, and editor must not be shutting down.
+   "editor.formatOnSave": true,
+   // Enable/disable default JavaScript formatter (For Prettier)
+   "javascript.format.enable": false,
+   "typescript.validate.enable": false,
+   "javascript.validate.enable": false,
+   "cSpell.words": ["fullpage", "pptr"]
 }
