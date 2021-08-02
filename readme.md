@@ -17,18 +17,18 @@ npm install puppeteer-full-page-screenshot --save
 ## Usage
 
 ```javascript
-import puppeteer from "puppeteer";
-import fullPageScreenshot from "puppeteer-full-page-screenshot";
+import puppeteer from 'puppeteer';
+import fullPageScreenshot from 'puppeteer-full-page-screenshot';
 
 (async () => {
-    const browser = await puppeteer.launch();
-    const page = await browser.newPage();
-    await page.setViewport({ width: 1920, height: 1080 });
-    await page.goto("http://example.com/");
+   const browser = await puppeteer.launch();
+   const page = await browser.newPage();
+   await page.setViewport({ width: 1920, height: 1080 });
+   await page.goto('http://example.com/');
 
-    await fullPageScreenshot(page, { path: "./page.png" });
+   await fullPageScreenshot(page, { path: './page.png' });
 
-    await browser.close();
+   await browser.close();
 })();
 ```
 
@@ -36,5 +36,7 @@ import fullPageScreenshot from "puppeteer-full-page-screenshot";
 
 ## Options
 
--   `delay` - Specifies the delay between each internal screenshot in milliseconds.
--   `path` - The file path to save the image to.
+Beside below options, [all Puppeteers page screenshot options](https://pptr.dev/#?product=Puppeteer&version=v10.1.0&show=api-pagescreenshotoptions) are supported.
+
+-  `delay` - Specifies the delay between each internal screenshot in milliseconds.
+-  `path` - The file path to save the image to.
