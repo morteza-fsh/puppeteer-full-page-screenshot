@@ -50,12 +50,15 @@ const fullPageScreenshot = async (page, options = {}) => {
       if (path) image.write(path);
       return image;
    }
-   // crop last image extra pixels
-   const cropped = await Jimp.read(images.pop())
-      .then((image) => image.crop(0, viewport.height - extraPixels, viewport.width, extraPixels))
-      .then((image) => image.getBufferAsync(Jimp.AUTO));
-
-   images.push(cropped);
+   
+   if (extraPixels > 0) {
+     // crop last image extra pixels
+     const cropped = await Jimp.read(images.pop())
+        .then((image) => image.crop(0, viewport.height - extraPixels, viewport.width, extraPixels))
+        .then((image) => image.getBufferAsync(Jimp.AUTO));
+     
+     images.push(cropped);
+   }
    const mergedImage = await merge(images, { direction: true });
 
    if (path) {
