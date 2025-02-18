@@ -1,6 +1,6 @@
 {
     "name": "puppeteer-full-page-screenshot",
-    "version": "1.2.2",
+    "version": "1.2.5",
     "description": "A better solution for taking full page screenshot with Puppeteer",
     "main": "lib/index.js",
     "author": "Morteza Faghih Shojaei <morteza@averta.net>",
@@ -9,12 +9,13 @@
     "scripts": {
         "clean": "rm -rf lib && mkdir lib",
         "build": "yarn run clean && babel -d ./lib ./src -s",
-        "start": "node --exec babel-node src/index.js"
+        "start": "node --exec babel-node src/index.js",
+        "publish": "yarn run build && npm publish"
     },
     "homepage": "https://github.com/morteza-fsh/puppeteer-full-page-screenshot",
     "repository": {
         "type": "git",
-        "url": "https://github.com/morteza-fsh/puppeteer-full-page-screenshot.git"
+        "url": "git+https://github.com/morteza-fsh/puppeteer-full-page-screenshot.git"
     },
     "files": [
         "lib"
