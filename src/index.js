@@ -5,7 +5,10 @@ import Jimp from 'jimp';
 
 const pageDown = async (page) => {
    const isEnd = await page.evaluate(() => {
-      window.scrollBy(0, window.innerHeight);
+      window.scrollBy({
+         top: window.innerHeight,
+         behavior: 'instant',
+      });
       return window.scrollY >= document.documentElement.scrollHeight - window.innerHeight;
    });
 
@@ -21,7 +24,12 @@ const defaultOptions = {
 
 const fullPageScreenshot = async (page, options = {}) => {
    const { pagesCount, extraPixels, viewport } = await page.evaluate(() => {
-      window.scrollTo(0, 0);
+      window.scrollTo({
+         top: 0,
+         left: 0,
+         behavior: 'instant',
+      });
+
       const pageHeight = document.documentElement.scrollHeight;
       return {
          pagesCount: Math.ceil(pageHeight / window.innerHeight),
